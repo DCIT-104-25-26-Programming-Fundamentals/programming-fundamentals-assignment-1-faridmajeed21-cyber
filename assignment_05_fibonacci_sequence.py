@@ -48,4 +48,85 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+# =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 5
+# Topic: Loops, Sequences, and Functions
+# =============================================================================
 
+
+# -----------------------------------------------------------------------------
+# PART A — Print the First N Terms
+# -----------------------------------------------------------------------------
+def print_fibonacci_terms(n):
+    """
+    Generates and prints the first N terms of the Fibonacci sequence on one line.
+    Requires N to be a positive integer.
+    """
+    if n <= 0:
+        print("Error: Number of terms must be a positive integer.")
+        return
+
+    sequence = []
+    a, b = 0, 1
+
+    for _ in range(n):
+        sequence.append(str(a))
+        a, b = b, a + b
+
+    print("Fibonacci sequence:", " ".join(sequence))
+
+
+# -----------------------------------------------------------------------------
+# PART B — Check if a Number Belongs to the Sequence
+# -----------------------------------------------------------------------------
+def is_fibonacci_number(target):
+    """
+    Determines whether a non-negative integer target is a Fibonacci number
+    using an iterative loop.
+    """
+    if target < 0:
+        print(f"{target} is NOT a Fibonacci number.")
+        return False
+
+    a, b = 0, 1
+
+    # Keep generating Fibonacci numbers until we reach or exceed the target
+    while a < target:
+        a, b = b, a + b
+
+    # If the loop stopped at exact target value, it's in the sequence
+    if a == target:
+        print(f"{target} is a Fibonacci number.")
+        return True
+    else:
+        print(f"{target} is NOT a Fibonacci number.")
+        return False
+
+
+# =============================================================================
+# MAIN PROGRAM DRIVER
+# =============================================================================
+def main():
+    print("==================================================")
+    print("       PROGRAMMING FUNDAMENTALS - ASSIGNMENT 5    ")
+    print("==================================================")
+
+    # --- PART A DEMO ---
+    print("\n--- PART A: PRINT FIRST N TERMS ---")
+    try:
+        n = int(input("How many terms? "))
+        print_fibonacci_terms(n)
+    except ValueError:
+        print("Error: Invalid input! Please enter an integer.")
+
+    # --- PART B DEMO ---
+    print("\n--- PART B: CHECK FIBONACCI MEMBERSHIP ---")
+    try:
+        num = int(input("Enter a number to check: "))
+        is_fibonacci_number(num)
+    except ValueError:
+        print("Error: Invalid input! Please enter an integer.")
+
+
+if __name__ == "__main__":
+    main()
