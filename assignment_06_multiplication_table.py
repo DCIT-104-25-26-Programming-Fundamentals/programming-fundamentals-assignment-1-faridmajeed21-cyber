@@ -54,4 +54,56 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def print_single_table(num):
+    if num <= 0:
+        print("Error: Please enter a positive integer.")
+        return
 
+    print(f"\nMultiplication Table for {num}:")
+    for i in range(1, 13):
+        print(f"  {num:>2}  x  {i:>2}  =  {num * i:>3}")
+
+
+def print_tables_up_to_n(n):
+    if n <= 0:
+        print("Error: Please enter a positive integer.")
+        return
+
+    for i in range(1, n + 1):
+        print_single_table(i)
+        if i < n:
+            print("  ---------------------------")
+
+
+def main():
+    print("==================================================")
+    print("       PROGRAMMING FUNDAMENTALS - ASSIGNMENT 6    ")
+    print("==================================================")
+
+    # --- PART A ---
+    print("\n--- PART A: SINGLE TABLE ---")
+    try:
+        num = int(input("Enter a number: "))
+        if num <= 0:
+            print("Error: Input must be a positive integer.")
+            return
+        print_single_table(num)
+    except ValueError:
+        print("Error: Invalid input! Please enter an integer.")
+        return
+
+    # --- PART B ---
+    print("\n--------------------------------------------------")
+    print("--- PART B: TABLES FROM 1 TO N ---")
+    try:
+        n = int(input("Enter N (generate tables from 1 to N): "))
+        if n <= 0:
+            print("Error: Input must be a positive integer.")
+            return
+        print_tables_up_to_n(n)
+    except ValueError:
+        print("Error: Invalid input! Please enter an integer.")
+
+
+if __name__ == "__main__":
+    main()
